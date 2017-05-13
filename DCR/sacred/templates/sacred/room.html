@@ -8,10 +8,24 @@
 </head>
 
 <body>
-    This is your room
+    <p id="messagelist"></p>
 
+    <form name="inputmessage" id="inputmessage">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="message">Message:</label>
+            <input type="text" id="message">
+        </div>
+        <div class="button">
+            <button type="submit">send</button>
+        </div>
+    </form>
     {% load static %}
     <script src="{% static 'sacred/material-components-web.js' %}"></script>
+    <script src="{% static 'sacred/chat.js' %}"></script>
     <script>mdc.autoInit()</script>
 </body>
 </html>
