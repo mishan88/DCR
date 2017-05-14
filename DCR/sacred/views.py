@@ -1,12 +1,14 @@
 """Sacred Views."""
 from django.shortcuts import render
 
+from .forms import ChatForm
 
 def index(request):
     """Index View."""
-    return render(request, template_name='sacred/index.html')
+    return render(request, 'sacred/index.html')
 
 
 def room(request):
     """Room View."""
-    return render(request, template_name='sacred/room.html')
+    form = ChatForm()
+    return render(request, 'sacred/room.html', {'form': form})

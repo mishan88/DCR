@@ -11,14 +11,8 @@
     <p id="messagelist"></p>
 
     <form name="inputmessage" id="inputmessage">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name">
-        </div>
-        <div>
-            <label for="message">Message:</label>
-            <input type="text" id="message">
-        </div>
+        {% csrf_token %}
+        {{ form }}
         <div class="button">
             <button type="submit">send</button>
         </div>

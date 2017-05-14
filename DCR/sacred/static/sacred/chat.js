@@ -12,6 +12,6 @@ socket.addEventListener('message', function(event){
 
 document.getElementById('inputmessage').addEventListener('submit', function(event){
     event.preventDefault();
-    socket.send(document.getElementById('name').value + ' : ' +document.getElementById('message').value);
-    document.getElementById('message').value = ''
+    socket.send(document.getElementById('id_your_name').value + ' : ' +document.getElementById('id_your_message').value);
+    document.getElementById('id_your_message').value = ''
 })
