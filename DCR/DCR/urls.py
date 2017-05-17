@@ -16,7 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from images.urls import router as image_router
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^sacred/', include('sacred.urls'))
+    url(r'^sacred/', include('sacred.urls')),
+    url(r'^api/', include(image_router.urls))
 ]

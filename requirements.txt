@@ -9,10 +9,15 @@ constantly==15.1.0
 daphne==1.2.0
 Django==1.11.1
 django-channels==0.7.0
+django-filter==1.0.3
+djangorestframework==3.6.3
 incremental==16.10.1
+Markdown==2.6.8
 msgpack-python==0.4.8
 oauthlib==2.0.2
+olefile==0.44
 packaging==16.8
+Pillow==4.1.1
 pkg-resources==0.0.0
 pyparsing==2.2.0
 pytz==2017.2
