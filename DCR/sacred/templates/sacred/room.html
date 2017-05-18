@@ -5,19 +5,40 @@
     <title>DCR-Room</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'sacred/material-components-web.css' %}">
+    <link rel="stylesheet" href="{% static 'sacred/dcr.css' %}">
 </head>
 
-<body>
+<body class="mdc-typography">
+    <header class="mdc-toolbar mdc-toolbar-fixed">
+    </header>
     <p id="messagelist"></p>
 
     <form name="inputmessage" id="inputmessage">
         {% csrf_token %}
         {{ form }}
         <div class="button">
-            <button type="submit">send</button>
+            <button type="submit" class="mdc-button mdc-button--raised">send</button>
         </div>
     </form>
+    <button id="komabutton" class="mdc-button mdc-button--raised">koma</button>
+    <div id="imagemodal" class="modal">
+        <div class="modal-content">
+            <header class="mdc-dialog_header">
+                <h2 id="mdc-dialog-default-label" class="mdc-dialog__header_title">
+                    upload / get images
+                </h2>
+            </header>
+            <section id="modal-discription" class="mdc-dialog__body">
+                upload
+            </section>
+            <footer class="mdc-dialog__footer">
+                <button type="button" id="closemodal" class="mdc-button mdc-dialog__footer_button mdc-dialog__footer_button--cancel">&times;</button>
+            </footer>
+        </div>
+    </div>
     {% load static %}
+    <script src="{% static 'sacred/konva.min.js' %}"></script>
+    <script src="{% static 'sacred/dcr.js' %}"></script>
     <script src="{% static 'sacred/material-components-web.js' %}"></script>
     <script src="{% static 'sacred/chat.js' %}"></script>
     <script>mdc.autoInit()</script>
