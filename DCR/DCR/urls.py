@@ -17,9 +17,18 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from images.urls import router as image_router
+from django.conf import settings
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sacred/', include('sacred.urls')),
     url(r'^api/', include(image_router.urls))
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^upload_images/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]
