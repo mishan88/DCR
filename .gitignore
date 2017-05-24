@@ -2,3 +2,5 @@
 /__pycache__
 *.pyc
 /DCR/db.sqlite3
+/DCR/upload_images/
+*.png
