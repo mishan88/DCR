@@ -31,3 +31,25 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.selectimage-ch {
+    background-color: rgb(243,243,243);
+    cursor:pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    transition: all 100em ease-in;
+    filter: brightness(1.8) grayscale(1) opacity(0.7);
+    width: 20px;
+    height: 20px;
+}
+
+.selectimage-ch:hover {
+    filter: brightness(1.2) grayscale(0.5) opacity(0.9);
+}
+
+.image-selector input{
+    margin: 0;
+    padding: 0;
+    appearance: none;
+}
