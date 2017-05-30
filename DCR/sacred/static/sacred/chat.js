@@ -12,6 +12,7 @@ socket.addEventListener('open', function(event){
 socket.addEventListener('message', function(event){
     if(JSON.parse(event.data).hasOwnProperty('message')){
         const sendingMessage = document.createElement('div')
+        sendingMessage.className = 'output-message'
         sendingMessage.textContent = JSON.parse(event.data).name + ':' + JSON.parse(event.data).message
         document.getElementById('messagelist').appendChild(sendingMessage)
     }

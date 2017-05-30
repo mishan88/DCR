@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html class="mdc-typography">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width~device-widthm initial-scale=1">
     <title>DCR-Room</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'sacred/material-components-web.css' %}">
@@ -10,17 +11,33 @@
 
 <body class="mdc-typography">
     <header class="mdc-toolbar mdc-toolbar-fixed">
-    </header>
-    <p id="messagelist"></p>
-
-    <form name="inputmessage" id="inputmessage">
-        {% csrf_token %}
-        {{ form }}
-        <div class="button">
-            <button type="submit" class="mdc-button mdc-button--raised">send</button>
+        <div class="mdc-toolbar__row">
+            <span class="mdc-toolbar__title">DCR</span>
+            <button id="komabutton" class="mdc-button mdc-button--raised">koma</button>
         </div>
-    </form>
-    <button id="komabutton" class="mdc-button mdc-button--raised">koma</button>
+    </header>
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__cell mdc_layout-grid__cell--span-4 chat-container">
+                <div class="chat-message" id="chat-message">
+                    <p id="messagelist"></p>
+                </div>
+                <div class="chat-input" id="chat-input">
+                    <form name="inputmessage" id="inputmessage">
+                        <div class="mdc-form-field">
+                            {% csrf_token %}
+                            {{ form }}
+                        </div>
+                        <div class="button">
+                            <button type="submit" class="mdc-button mdc-button--raised">send</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+            <canvas>
+            </canvas>
+        </div>
+    </div>
     <div id="imagemodal" class="modal">
         <div class="modal-content">
             <header class="mdc-dialog_header">
