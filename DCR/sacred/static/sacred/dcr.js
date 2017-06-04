@@ -1,20 +1,18 @@
 const modal = document.getElementById('imagemodal')
-const imagelist = document.getElementById('imagelist')
 document.getElementById('komabutton').addEventListener('click',function(event){
     modal.style.display = 'block';
     fetch('http://' + window.location.host + '/api/images/').then(function(response){
         if(response.ok){
             response.json().then(function(myjson){
-                const imageinput = document.createElement('input');
-                imageinput.type = 'radio';
-                const imagelabel = document.createElement('label');
-                imagelabel.className = 'selectimage-ch';
                 for(let i = 0; i < myjson.length; i++){
-                    let imageurl = myjson[i].imageinput
+                    const imageinput = document.createElement('input');
+                    imageinput.type = 'radio';
+                    const imagelabel = document.createElement('label');
+                    imagelabel.className = 'selectimage-ch';
                     imagelabel.style.backgroundImage = "url(" + myjson[i].image + ")"
-                    imagelist.appendChild(imageinput);
-                    imagelist.appendChild(imagelabel);
-                }
+                    document.getElementById('imagelist').appendChild(imageinput);
+                    document.getElementById('imagelist').appendChild(imagelabel);
+                };
             })
         } else {
             console.log('Network trouble?')
