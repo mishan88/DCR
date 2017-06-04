@@ -15,6 +15,7 @@ document.getElementById('komabutton').addEventListener('click',function(event){
                     imageinput.type = 'radio';
                     imageinput.className = 'mdc-radio__native-control';
                     imageinput.id = apiimage_json[numberOfImages].id;
+                    imageinput.value = apiimage_json[numberOfImages].image;
                     imageinput.name = 'imageselect';
 
                     const imageradio_background = document.createElement('div');
@@ -48,11 +49,38 @@ document.getElementById('komabutton').addEventListener('click',function(event){
 document.getElementById('closemodal').addEventListener('click',function(event){
     modal.style.display = 'none';
     imagelist.textContent = null;
-})
+});
 
 window.onclick = function(event){
     if(event.target == modal){
         modal.style.display = 'none';
         imagelist.textContent = null;
     }
-}
+};
+
+
+document.getElementById('putkoma').addEventListener('click',function(event){
+    const imageObj = new Image();
+    imageObj.src = document.querySelector('input[name="imageselect"]:checked').value;
+    const koma = new Konva.Image({
+        x:100,
+        y:100,
+        image: imageObj,
+        width:20,
+        height:20,
+        draggable:true
+    });
+    komalist.push(koma)
+    layer.add(koma);
+    stage.add(layer)
+});
+
+const stage = new Konva.Stage({
+    container: 'map',
+    width: 400,
+    height: 400
+});
+const layer = new Konva.Layer();
+stage.add(layer);
+
+const komalist = []
