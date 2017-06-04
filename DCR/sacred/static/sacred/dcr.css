@@ -90,3 +90,8 @@ div.mdc-layout-grid{
 #id_your_name {
     width: 40px;
 }
+
+#map {
+    width: auto;
+    height: auto;
+}

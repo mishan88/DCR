@@ -34,24 +34,24 @@
                 </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-            <canvas>
-            </canvas>
+            <div id="map" width="400px" height="400px">
+            </div>
         </div>
     </div>
     <div id="imagemodal" class="modal">
         <div class="modal-content">
             <header class="mdc-dialog_header">
                 <h2 id="mdc-dialog-default-label" class="mdc-dialog__header_title">
-                    upload / get images
+                    get images
                 </h2>
             </header>
             <section id="modal-discription" class="mdc-dialog__body">
-                <div id="imagelist" class="image-selector mdc-radio">
-                    <div class="mdc-radio_background">
-                    </div>
+                <div id="imagelist" class="image-selector">
+
                 </div>
             </section>
             <footer class="mdc-dialog__footer">
+                <button type="button" id="putkoma" class="mdc-button mdc-dialog__footer_button">OK</button>
                 <button type="button" id="closemodal" class="mdc-button mdc-dialog__footer_button mdc-dialog__footer_button--cancel">CANCEL</button>
             </footer>
         </div>
@@ -61,6 +61,7 @@
     <script src="{% static 'sacred/dcr.js' %}"></script>
     <script src="{% static 'sacred/material-components-web.js' %}"></script>
     <script src="{% static 'sacred/chat.js' %}"></script>
+    <script src="{% static 'sacred/map.js' %}"></script>
     <script>mdc.autoInit()</script>
 </body>
 </html>
