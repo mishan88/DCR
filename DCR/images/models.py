@@ -1,7 +1,11 @@
+"""model."""
+
 from django.db import models
 import uuid
 
+
 class Images(models.Model):
+    """For Image model(Map and koma use this model)."""
 
     IMAGE_TYPE_CHOICES = (
         ('KOMA', 'Koma'),
