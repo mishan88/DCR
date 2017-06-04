@@ -14,6 +14,7 @@
         <div class="mdc-toolbar__row">
             <span class="mdc-toolbar__title">DCR</span>
             <button id="komabutton" class="mdc-button mdc-button--raised">koma</button>
+            <button id="imageupload" class="mdc-button mdc-button--raised">upload</button>
         </div>
     </header>
     <div class="mdc-layout-grid">
@@ -38,21 +39,44 @@
             </div>
         </div>
     </div>
-    <div id="imagemodal" class="modal">
+    <div id="getimagemodal" class="modal">
         <div class="modal-content">
             <header class="mdc-dialog_header">
                 <h2 id="mdc-dialog-default-label" class="mdc-dialog__header_title">
                     get images
                 </h2>
             </header>
-            <section id="modal-discription" class="mdc-dialog__body">
+            <section id="getimagemodal-discription" class="mdc-dialog__body">
                 <div id="imagelist" class="image-selector">
-
                 </div>
             </section>
             <footer class="mdc-dialog__footer">
                 <button type="button" id="putkoma" class="mdc-button mdc-dialog__footer_button">OK</button>
-                <button type="button" id="closemodal" class="mdc-button mdc-dialog__footer_button mdc-dialog__footer_button--cancel">CANCEL</button>
+                <button type="button" id="closegetimagemodal" class="mdc-button mdc-dialog__footer_button mdc-dialog__footer_button--cancel">CANCEL</button>
+            </footer>
+        </div>
+    </div>
+    <div id="postimagemodal" class="modal">
+        <div class="modal-content">
+            <header class="mdc-dialog_header">
+                <h2 id="mdc-dialog-default-label" class="mdc-dialog__header_title">
+                    post images
+                </h2>
+            </header>
+            <section id="postimagemodal-discription" class="mdc-dialog__body">
+                <div>
+                    <form id="uploadimages">
+                        <input name="image" type="file">
+                        <select name="imagetype" form="uploadimages">
+                            <option value="KOMA">koma</option>
+                            <option value="MAP">map</option>
+                        </select>
+                    </form>
+                </div>
+            </section>
+            <footer class="mdc-dialog__footer">
+                <button type="button" id="uploadimagebutton" class="mdc-button mdc-dialog__footer_button">OK</button>
+                <button type="button" id="closepostimagemodal" class="mdc-button mdc-dialog__footer_button mdc-dialog__footer_button--cancel">CANCEL</button>
             </footer>
         </div>
     </div>

@@ -1,6 +1,6 @@
-const modal = document.getElementById('imagemodal')
+const getimagemodal = document.getElementById('getimagemodal')
 document.getElementById('komabutton').addEventListener('click',function(event){
-    modal.style.display = 'block';
+    getimagemodal.style.display = 'block';
     fetch('//' + window.location.host + '/api/images/?room=' + window.location.pathname.slice(12)).then(function(response){
         if(response.ok){
             response.json().then(function(apiimage_json){
@@ -46,17 +46,39 @@ document.getElementById('komabutton').addEventListener('click',function(event){
     })
 })
 
-document.getElementById('closemodal').addEventListener('click',function(event){
-    modal.style.display = 'none';
+document.getElementById('closegetimagemodal').addEventListener('click',function(event){
+    getimagemodal.style.display = 'none';
     imagelist.textContent = null;
 });
 
+document.getElementById('closepostimagemodal').addEventListener('click',function(event){
+    postimagemodal.style.display = 'none';
+});
+
 window.onclick = function(event){
-    if(event.target == modal){
-        modal.style.display = 'none';
+    if(event.target == getimagemodal){
+        getimagemodal.style.display = 'none';
         imagelist.textContent = null;
-    }
+    };
+    if(event.target == postimagemodal){
+        postimagemodal.style.display = 'none';
+    };
 };
+
+document.getElementById('uploadimagebutton').addEventListener('click',function(event){
+    const formData = new FormData(document.getElementById('uploadimages'));
+    formData.append('room',window.location.pathname.slice(12))
+    fetch('//' + window.location.host + '/api/images/',{
+        method: 'POST',
+        body: formData
+    }).then(function(response){
+        console.log('OK');
+    });
+})
+
+document.getElementById('imageupload').addEventListener('click',function(event){
+    postimagemodal.style.display = 'block';
+})
 
 
 document.getElementById('putkoma').addEventListener('click',function(event){
